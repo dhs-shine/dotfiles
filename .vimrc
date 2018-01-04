@@ -43,6 +43,11 @@ autocmd Filetype python set expandtab
 autocmd Filetype python map <buffer> <f3> :call Flake8()<CR>
 autocmd Filetype python noremap <buffer> <f8> :call Autopep8()<CR>
 autocmd Filetype python nnoremap <silent> <F5> :!clear;python3 %<CR>
+autocmd Filetype yaml set ts=2
+autocmd Filetype yaml set sw=2
+autocmd Filetype yaml set sts=2
+autocmd Filetype yaml set expandtab
+
 
 set foldmethod=indent
 set foldlevel=99
