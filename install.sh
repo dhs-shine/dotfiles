@@ -11,9 +11,12 @@ apt_install() {
 
 copy_dot_files() {
     echo "copy .bashrc .dircolors .vim to home directory."
+    NOW=$( date '+%F' )
+    VIM_VERSION='81'
+    cp /home/${USER}/.bashrc /home/${USER}/.bashrc.$NOW
     cp .vimrc .bashrc .dircolors /home/${USER}/
     cp -R .vim /home/${USER}/
-    sudo cp jellybeans.vim /usr/share/vim/vim74/colors
+    sudo cp jellybeans.vim /usr/share/vim/vim${VIM_VERSION}/colors
 }
 
 vim_plugin_install() {
@@ -33,12 +36,13 @@ command_t_compile() {
 
 echo "Start."
 
-apt_install 'vim-nox'
-apt_install 'flake8'
-apt_install 'python-autopep8'
-apt_install 'ruby-dev'
+apt_install vim
+#apt_install 'vim-nox'
+#apt_install 'flake8'
+#apt_install 'python-autopep8'
+#apt_install 'ruby-dev'
 copy_dot_files
 vim_plugin_install
-command_t_compile
+#command_t_compile
 
 echo "Done."
